@@ -266,12 +266,15 @@ impl<T: Runtime> ClientBuilder<T> {
 
 /// Client to interface with a substrate node.
 pub struct Client<T: Runtime> {
-    rpc: Rpc<T>,
-    genesis_hash: T::Hash,
+    /// Rpc.
+    pub rpc: Rpc<T>,
+    /// Genesis hash.
+    pub genesis_hash: T::Hash,
     metadata: Metadata,
     events_decoder: EventsDecoder<T>,
     properties: SystemProperties,
-    runtime_version: RuntimeVersion,
+    /// Runtime version.
+    pub runtime_version: RuntimeVersion,
     _marker: PhantomData<(fn() -> T::Signature, T::Extra)>,
     page_size: u32,
 }
